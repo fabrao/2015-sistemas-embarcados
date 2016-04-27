@@ -1,0 +1,50 @@
+
+ROM used: 1040 (3%)
+          1040 (3%) including unused fragments
+
+          2 Average locations per line
+          65 Average locations per statement
+
+RAM used: 34 (2%) at main() level
+          78 (4%) worst case
+
+Stack used: 4 worst case (out of 29 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   62    16 100  projeto1-3.c
+  432     0   0  C:\Program Files (x86)\PICC\devices\18F4550.h
+----- -----
+  494    16 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     18   1   0    17  0.8  The_first_rtos_task
+0    158   8   4   123  2.6  The_second_rtos_task
+0     86   4  14             @MUL3232
+0    122   6  13             @DIV3232
+0    112   5   2    59  1.6  The_third_rtos_task
+0     56   3   0    59  1.6  @const76
+0    174   8  12             @PRINTF_L32U_2400_31766_31767
+0    288  14   0   123  1.7  MAIN
+0     22   1   0   123  1.7  @const81
+
+Program metrics:
+    Functions               6
+    Statements              16
+    Comments                108
+    Volume (V)              815
+    Difficilty (D)          9.8
+    Effort to implement (E) 8001
+    Time to implement (T)   7 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    144
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE  1036  31728  
+
+
+

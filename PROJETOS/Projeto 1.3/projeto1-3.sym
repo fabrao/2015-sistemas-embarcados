@@ -1,0 +1,131 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @SCRATCH
+005     @CURRENT_TASK
+006     sem
+007-008 valor_ad
+009-00C Temp
+00D-013 @TASKINFO1_2_2_0_0
+014-01A @TASKINFO2_2_2_0_0
+01B-021 @TASKINFO3_2_2_0_0
+022     The_second_rtos_task.@SCRATCH1
+023     The_second_rtos_task.@SCRATCH2
+024     The_second_rtos_task.@SCRATCH3
+025     The_second_rtos_task.@SCRATCH4
+026-029 @MUL3232.P1
+02A-02D @MUL3232.P1
+02E     @MUL3232.@SCRATCH1
+02F     @MUL3232.@SCRATCH2
+030     @MUL3232.@SCRATCH3
+031     @MUL3232.@SCRATCH4
+032     @MUL3232.@SCRATCH5
+033     @MUL3232.@SCRATCH6
+034     The_third_rtos_task.@SCRATCH1
+035-038 @PRINTF_L32U_2400_31766_31767.P1
+035     The_third_rtos_task.@SCRATCH2
+039     @PRINTF_L32U_2400_31766_31767.@SCRATCH1
+03A     @PRINTF_L32U_2400_31766_31767.@SCRATCH2
+03B     @PRINTF_L32U_2400_31766_31767.@SCRATCH3
+03C     @PRINTF_L32U_2400_31766_31767.@SCRATCH4
+03D     @PRINTF_L32U_2400_31766_31767.@SCRATCH5
+03E     @PRINTF_L32U_2400_31766_31767.@SCRATCH6
+03F     @PRINTF_L32U_2400_31766_31767.@SCRATCH7
+040     @PRINTF_L32U_2400_31766_31767.@SCRATCH8
+041-044 @DIV3232.P1
+045-048 @DIV3232.P1
+049     @DIV3232.@SCRATCH1
+04A     @DIV3232.@SCRATCH2
+04B     @DIV3232.@SCRATCH3
+04C     @DIV3232.@SCRATCH4
+04D     @DIV3232.@SCRATCH5
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB-FBC CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE-FBF CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE9-FEA @WRITE_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PROGRAM_MEMORY.P2
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+0052  The_first_rtos_task
+0134  The_second_rtos_task
+0064  @MUL3232
+00BA  @DIV3232
+0280  The_third_rtos_task
+0004  @const76
+01D2  @PRINTF_L32U_2400_31766_31767
+02F0  MAIN
+003C  @const81
+02F0  @cinit
+
+Project Directory:
+    E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\PROJETOS\Projeto 1.3\
+
+Project Files:
+    projeto1-3.c
+    C:\Program Files (x86)\PICC\devices\18F4550.h
+
+Units:
+    E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\PROJETOS\Projeto 1.3\projeto1-3.c (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Task Schedule:
+     10, ms  The_first_rtos_task
+    Sync to next 100, ms
+     40, ms  The_second_rtos_task
+    Sync to next 100, ms
+     10, ms  The_first_rtos_task
+    Sync to next 100, ms
+     40, ms  The_third_rtos_task
+    Sync to next 100, ms
+     10, ms  The_first_rtos_task
+    Sync to next 100, ms
+    Wait 100, ms
+     10, ms  The_first_rtos_task
+    Sync to next 100, ms
+    Wait 100, ms
+     10, ms  The_first_rtos_task
+    Sync to next 100, ms
+    Wait 100, ms
+     10, ms  The_first_rtos_task
+    Sync to next 100, ms
+    Wait 100, ms
+     10, ms  The_first_rtos_task
+    Sync to next 100, ms
+    Wait 100, ms
+     10, ms  The_first_rtos_task
+    Sync to next 100, ms
+    Wait 100, ms
+     10, ms  The_first_rtos_task
+    Sync to next 100, ms
+    Wait 100, ms
+     10, ms  The_first_rtos_task
+    Sync to next 100, ms
+    Wait 100, ms
+
+Output Files:
+    Errors:      projeto1-3.err
+    Ext Symbols: projeto1-3.esym
+    INHX32:      projeto1-3.hex
+    Symbols:     projeto1-3.sym
+    List:        projeto1-3.lst
+    Debug/COFF:  projeto1-3.cof
+    Project:     projeto1-3.PJT
+    Call Tree:   projeto1-3.tre
+    Statistics:  projeto1-3.sta

@@ -1,0 +1,23 @@
+[Header]
+MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
+Version=1.0
+[File000]
+Location=E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\PROJETOS\Projeto 1.2\projeto1-2.ESYM
+Folder=Intermediary
+[File001]
+Location=E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\PROJETOS\Projeto 1.2\projeto1-2.o
+Folder=Intermediary
+[File002]
+Location=E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\PROJETOS\Projeto 1.2\projeto1-2.HEX
+Folder=Output
+[File003]
+Location=E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\PROJETOS\Projeto 1.2\projeto1-2.LST
+Folder=Output
+[File004]
+Location=E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\PROJETOS\Projeto 1.2\projeto1-2.ERR
+Folder=Output
+[File005]
+Location=E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\PROJETOS\Projeto 1.2\projeto1-2.COF
+Folder=Output
+[TOOL_LOC_STAMPS]
+tool_loc{0C155615-B197-4A4B-AEB6-343BB3F41A35}=C:\Program Files (x86)\PICC\Ccsc.exe

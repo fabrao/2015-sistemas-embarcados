@@ -1,0 +1,40 @@
+PROJETO 1.1 a 1.3
+	-Para rodar no kit, incluir no Código:
+		#include<18F4550.h>
+		#device ICD=TRUE
+		#use delay(clock=20000000)
+		#fuses NOWDT, NOPROTECT, DEBUG, NOLVP, HS, PLL5, CPUDIV1, USBDIV, NOPBADEN
+
+
+PROJETO 1.3
+	Para o módulo A/D usar a diretiva "#device adc=10"
+
+	FAZER;
+		set_tris_a(0xFF);		PortA entrada
+		setup_adc_ports(ALL_ANALOGIC);	Pinos PortA - Todos Analógicos
+		setup_adc(ADC_CLOCK_DIV_32);	TAD= Fosc/32 -> Fosc=20mhz
+		set_adc_channel(0);		Seleciona canal AN0
+
+
+
+PARA LER O CANAL A/D USAR A FUNÇÃO "read_adc();"
+	Exemplo;
+		valor_ad = read_adc(); 
+
+		//variavel 16bits
+		unsigned int16 valor_ad;
+
+	\\Vai de 0 a 1023 pois A/D é de 10bits
+
+
+
+
+
+unsigned int32 T;
+
+T= (unsigned int32)valor_ad*500;
+T= T/1023;
+
+
+Para enviar pela serial
+printf("Temperatura=%Lu Celsius \n\r", T);

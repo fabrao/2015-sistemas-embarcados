@@ -1,0 +1,98 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @SCRATCH
+005     @CURRENT_TASK
+006     count
+007-00D @TASKINFO1_2_2_0_0
+00E-014 @TASKINFO2_2_2_0_0
+015-01F @TASKINFO3_2_2_0_4
+020     The_third_rtos_task.@SCRATCH1
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB-FBC CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE-FBF CCP_1
+FBF     CCP_1_HIGH
+FE9-FEA @WRITE_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PROGRAM_MEMORY.P2
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+001A  The_first_rtos_task
+002C  The_second_rtos_task
+0068  The_third_rtos_task
+00B0  MAIN
+0004  @const70
+00B0  @cinit
+
+Project Directory:
+    E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\PROJETOS\Projeto 1.2\
+
+Project Files:
+    projeto1-2.c
+    C:\Program Files (x86)\PICC\devices\18F4550.h
+
+Units:
+    projeto1-2.c (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    ICD Provisions: Yes
+    Predefined symbols:
+       #define __DEBUG 1
+       #define __18F4550 TRUE
+
+Task Schedule:
+     10, ms  The_first_rtos_task
+    Sync to next 10, ms
+     10, ms  The_second_rtos_task
+    Sync to next 10, ms
+     10, ms  The_third_rtos_task
+    Sync to next 10, ms
+    Wait 170, ms
+     10, ms  The_first_rtos_task
+    Sync to next 10, ms
+     10, ms  The_second_rtos_task
+    Sync to next 10, ms
+    Wait 180, ms
+     10, ms  The_first_rtos_task
+    Sync to next 10, ms
+     10, ms  The_second_rtos_task
+    Sync to next 10, ms
+    Wait 100, ms
+     10, ms  The_third_rtos_task
+    Sync to next 10, ms
+    Wait 70, ms
+     10, ms  The_first_rtos_task
+    Sync to next 10, ms
+     10, ms  The_second_rtos_task
+    Sync to next 10, ms
+    Wait 180, ms
+     10, ms  The_first_rtos_task
+    Sync to next 10, ms
+     10, ms  The_second_rtos_task
+    Sync to next 10, ms
+    Wait 180, ms
+
+Output Files:
+    Errors:      projeto1-2.err
+    Ext Symbols: projeto1-2.esym
+    INHX32:      projeto1-2.hex
+    Symbols:     projeto1-2.sym
+    List:        projeto1-2.lst
+    Debug/COFF:  projeto1-2.cof
+    Project:     projeto1-2.PJT
+    Call Tree:   projeto1-2.tre
+    Statistics:  projeto1-2.sta

@@ -1,0 +1,15 @@
+ÀÄPeríodo 8
+   ÃÄMAIN  0/288  Ram=0
+   ³  ÃÄ??0??
+   ³  ÃÄ@const81  0/22  Ram=0
+   ³  ÀÄ@const81  0/22  Ram=0
+   ÃÄThe_first_rtos_task  0/18  Ram=0
+   ÃÄThe_second_rtos_task  0/158  Ram=4
+   ³  ÃÄ@MUL3232  0/86  Ram=14
+   ³  ÀÄ@DIV3232  0/122  Ram=13
+   ÀÄThe_third_rtos_task  0/112  Ram=2
+      ÃÄ@const76  0/56  Ram=0
+      ÃÄ@PRINTF_L32U_2400_31766_31767  0/174  Ram=12
+      ³  ÃÄ@DIV3232  0/122  Ram=13
+      ³  ÀÄ@DIV3232  0/122  Ram=13
+      ÀÄ@const76  0/56  Ram=0

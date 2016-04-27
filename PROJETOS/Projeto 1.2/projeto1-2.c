@@ -1,0 +1,50 @@
+#include <18F4550.h>
+
+#use delay(clock = 20000000)
+#fuses HS, NOWDT, NOPROTECT, NOLVP
+#use rs232(baud=9600, xmit=PIN_C6, rcv=PIN_C7)
+#use rtos(timer=0, minor_cycle=10ms)
+
+#define LED1   PIN_D0
+#define LED2   PIN_D1
+#define LED3   PIN_D2
+#define LED4   PIN_D3
+#define LED5   PIN_D4
+#define LED6   PIN_D5
+#define LED7   PIN_D6
+#define LED8   PIN_D7
+#define LED_A5 PIN_A5
+
+int8 count=0;
+#task (rate=200ms, max=10ms)
+void The_first_rtos_task();
+#task (rate=200ms,max=10ms)
+void The_second_rtos_task();
+#task (rate=500ms,max=10ms, queue=1)
+void The_third_rtos_task();
+
+void The_first_rtos_task(){
+   output_toggle(LED_A5);
+}
+
+void The_second_rtos_task(){
+   count++;
+   if(!input(PIN_C0)){
+      rtos_msg_send(The_third_rtos_task,count);
+      //delay_ms(9);
+   }
+  
+}
+
+void The_third_rtos_task(){
+   if(rtos_msg_poll()>0){
+      output_d(rtos_msg_read());
+   }
+
+}
+
+void main(){
+   set_tris_d(0x00);
+   rtos_run();
+}
+
