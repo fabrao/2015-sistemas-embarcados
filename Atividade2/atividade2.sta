@@ -1,0 +1,51 @@
+
+ROM used: 614 (2%)
+          614 (2%) including unused fragments
+
+          2 Average locations per line
+          44 Average locations per statement
+
+RAM used: 28 (2%) at main() level
+          31 (2%) worst case
+
+Stack used: 3 worst case (out of 30 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   47    14 100  atividade2.c
+  335     0   0  C:\Program Files (x86)\PICC\devices\18F452.h
+----- -----
+  382    14 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     70   6   1    80  1.8  The_first_rtos_task
+0     26   2   0             @const66
+0     44   4   0             @const67
+0     74   6   1   108  2.7  The_second_rtos_task
+0     26   2   0             @const68
+0     44   4   0             @const69
+0     38   3   1    17  0.8  The_third_rtos_task
+0     26   2   0             @const70
+0    240  20   0    29  1.2  MAIN
+0     22   2   0             @const73
+
+Program metrics:
+    Functions               4
+    Statements              14
+    Comments                82
+    Volume (V)              351
+    Difficilty (D)          5.6
+    Effort to implement (E) 1969
+    Time to implement (T)   2 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   2
+    Maintainability (MI)    161
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE   610  32154  
+
+
+

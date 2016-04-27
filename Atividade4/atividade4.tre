@@ -1,0 +1,9 @@
+ÀÄPeríodo 8
+   ÃÄMAIN  0/226  Ram=0
+   ³  ÃÄ??0??
+   ³  ÃÄ@const66  0/20  Ram=0
+   ³  ÀÄ@const66  0/20  Ram=0
+   ÃÄThe_first_rtos_task  0/64  Ram=1
+   ³  ÀÄ@delay_ms1  0/38  Ram=1
+   ÀÄThe_second_rtos_task  0/30  Ram=0
+      ÀÄ@delay_ms1  0/38  Ram=1

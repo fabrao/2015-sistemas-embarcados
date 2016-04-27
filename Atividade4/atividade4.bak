@@ -1,0 +1,38 @@
+#include <18F452.h>
+
+#use delay(clock = 20000000)
+#fuses HS, NOWDT, NOPROTECT, NOLVP
+#use rs232(baud=9600, xmit=PIN_C6, rcv=PIN_C7)
+#use rtos(timer=0, minor_cycle=100ms)
+
+#define RED PIN_B0
+#define GREEN PIN_B1
+
+int8 count;
+
+#task (rate=1000ms,max=100ms, queue=2)
+void The_first_rtos_task();
+
+#task (rate=1000ms,max=100ms, queue=2)
+void The_second_rtos_task();
+
+
+void The_first_rtos_task(){
+   rtos_await(count==10);
+   output_low(GREEN); delay_ms(20); output_high(GREEN);
+   count=0;
+}
+
+void The_second_rtos_task(){
+   output_low(GREEN); delay_ms(20); output_high(GREEN);
+   count++;
+}
+
+void The_third_rtos_task(){
+   printf("Task 3\n\r");
+}
+
+void main(){
+   count=0;
+   rtos_run();
+}

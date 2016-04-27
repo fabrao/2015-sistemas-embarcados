@@ -1,0 +1,87 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @SCRATCH
+005     @CURRENT_TASK
+006     counter
+007-00D @TASKINFO1_2_2_0_0
+00E-014 @TASKINFO2_2_2_0_0
+015-01B @TASKINFO3_2_2_0_0
+01C     MAIN.@SCRATCH1
+01D     The_first_rtos_task.@SCRATCH1
+01E     The_second_rtos_task.@SCRATCH1
+01F     The_third_rtos_task.@SCRATCH1
+F83     PSP_DATA
+FBB     CCP_2_LOW
+FBB-FBC CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE-FBF CCP_1
+FBF     CCP_1_HIGH
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+0094  The_first_rtos_task
+0004  @const62
+00C6  The_second_rtos_task
+001E  @const65
+00EC  The_third_rtos_task
+0038  @const68
+0112  MAIN
+0052  @const71
+0068  @const72
+0112  @cinit
+
+Project Directory:
+    E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\Atividade1\
+
+Project Files:
+    atividade1.c
+    C:\Program Files (x86)\PICC\devices\18F452.h
+
+Units:
+    E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\Atividade1\atividade1.c (main)
+
+Compiler Settings:
+    Processor:      PIC18F452
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Task Schedule:
+    100, ms  The_third_rtos_task
+    Sync to next 100, ms
+    100, ms  The_second_rtos_task
+    Sync to next 100, ms
+    100, ms  The_first_rtos_task
+    Sync to next 100, ms
+    Wait 700, ms
+    100, ms  The_third_rtos_task
+    Sync to next 100, ms
+    Wait 900, ms
+    100, ms  The_third_rtos_task
+    Sync to next 100, ms
+    100, ms  The_second_rtos_task
+    Sync to next 100, ms
+    Wait 800, ms
+    100, ms  The_third_rtos_task
+    Sync to next 100, ms
+    Wait 900, ms
+
+Output Files:
+    Errors:      atividade1.err
+    Ext Symbols: atividade1.esym
+    INHX32:      atividade1.hex
+    Symbols:     atividade1.sym
+    List:        atividade1.lst
+    Debug/COFF:  atividade1.cof
+    Project:     atividade1.PJT
+    Call Tree:   atividade1.tre
+    Statistics:  atividade1.sta

@@ -1,0 +1,11 @@
+ÀÄPeríodo 8
+   ÃÄMAIN  0/224  Ram=0
+   ³  ÃÄ??0??
+   ³  ÃÄ@const73  0/20  Ram=0
+   ³  ÀÄ@const73  0/20  Ram=0
+   ÃÄThe_first_rtos_task  0/74  Ram=1
+   ÀÄThe_second_rtos_task  0/124  Ram=2
+      ÃÄ@const64  0/32  Ram=0
+      ÀÄ@PRINTF_D_9600_31766_31767  0/210  Ram=6
+         ÃÄ@DIV88  0/40  Ram=3
+         ÀÄ@DIV88  0/40  Ram=3

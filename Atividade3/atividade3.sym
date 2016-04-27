@@ -1,0 +1,90 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @SCRATCH
+005     @CURRENT_TASK
+006-011 @TASKINFO1_2_2_0_5
+012-01D @TASKINFO2_2_2_0_5
+01E     The_first_rtos_task.count
+01F     The_second_rtos_task.@SCRATCH1
+020     The_second_rtos_task.@SCRATCH2
+021     @PRINTF_D_9600_31766_31767.P1
+022     @PRINTF_D_9600_31766_31767.P1
+023     @PRINTF_D_9600_31766_31767.@SCRATCH1
+024     @PRINTF_D_9600_31766_31767.@SCRATCH2
+025     @PRINTF_D_9600_31766_31767.@SCRATCH3
+026     @PRINTF_D_9600_31766_31767.@SCRATCH4
+027     @DIV88.P1
+028     @DIV88.P1
+029     @DIV88.@SCRATCH1
+F83     PSP_DATA
+FBB     CCP_2_LOW
+FBB-FBC CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE-FBF CCP_1
+FBF     CCP_1_HIGH
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+0038  The_first_rtos_task
+017C  The_second_rtos_task
+0004  @const64
+0082  @DIV88
+00AA  @PRINTF_D_9600_31766_31767
+01F8  MAIN
+0024  @const73
+01F8  @cinit
+
+Project Directory:
+    E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\Atividade3\
+
+Project Files:
+    atividade3.c
+    C:\Program Files (x86)\PICC\devices\18F452.h
+
+Units:
+    E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\Atividade3\atividade3.c (main)
+
+Compiler Settings:
+    Processor:      PIC18F452
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Task Schedule:
+    100, ms  The_first_rtos_task
+    Sync to next 100, ms
+    100, ms  The_second_rtos_task
+    Sync to next 100, ms
+    Wait 3,8 s
+    100, ms  The_first_rtos_task
+    Sync to next 100, ms
+    Wait 3,9 s
+    100, ms  The_first_rtos_task
+    Sync to next 100, ms
+    Wait 3,9 s
+    100, ms  The_first_rtos_task
+    Sync to next 100, ms
+    Wait 3,9 s
+    100, ms  The_first_rtos_task
+    Sync to next 100, ms
+    Wait 3,9 s
+
+Output Files:
+    Errors:      atividade3.err
+    Ext Symbols: atividade3.esym
+    INHX32:      atividade3.hex
+    Symbols:     atividade3.sym
+    List:        atividade3.lst
+    Debug/COFF:  atividade3.cof
+    Project:     atividade3.PJT
+    Call Tree:   atividade3.tre
+    Statistics:  atividade3.sta

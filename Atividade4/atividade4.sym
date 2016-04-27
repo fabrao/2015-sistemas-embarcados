@@ -1,0 +1,67 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @SCRATCH
+005     @CURRENT_TASK
+006     count
+007-012 @TASKINFO1_2_2_0_5
+013-01E @TASKINFO2_2_2_0_5
+01F     The_first_rtos_task.@SCRATCH1
+020     @delay_ms1.P1
+F83     PSP_DATA
+FBB-FBC CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE-FBF CCP_1
+FBF     CCP_1_HIGH
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+0018  @delay_ms1
+003E  The_first_rtos_task
+007E  The_second_rtos_task
+009C  MAIN
+0004  @const66
+009C  @cinit
+
+Project Directory:
+    E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\Atividade4\
+
+Project Files:
+    atividade4.c
+    C:\Program Files (x86)\PICC\devices\18F452.h
+
+Units:
+    E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\Atividade4\atividade4.c (main)
+
+Compiler Settings:
+    Processor:      PIC18F452
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Task Schedule:
+    100, ms  The_first_rtos_task
+    Sync to next 100, ms
+    100, ms  The_second_rtos_task
+    Sync to next 100, ms
+    Wait 800, ms
+
+Output Files:
+    Errors:      atividade4.err
+    Ext Symbols: atividade4.esym
+    INHX32:      atividade4.hex
+    Symbols:     atividade4.sym
+    List:        atividade4.lst
+    Debug/COFF:  atividade4.cof
+    Project:     atividade4.PJT
+    Call Tree:   atividade4.tre
+    Statistics:  atividade4.sta

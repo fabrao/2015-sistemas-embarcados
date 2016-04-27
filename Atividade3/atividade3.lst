@@ -1,0 +1,257 @@
+CCS PCH C Compiler, Version 4.074, 38112               13-nov-14 20:06
+
+               Filename: E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\Atividade3\atividade3.lst
+
+               ROM used: 728 bytes (2%)
+                         Largest free fragment is 32040
+               RAM used: 30 (2%) at main() level
+                         42 (3%) worst case
+               Stack:    4 worst case (1 in main + 3 for interrupts)
+
+*
+0000:  GOTO   01F8
+.................... #include <18F452.h> 
+.................... //////// Standard Header file for the PIC18F452 device //////////////// 
+.................... #device PIC18F452 
+.................... #list 
+....................  
+....................  
+.................... #use delay(clock = 20000000) 
+.................... #fuses HS, NOWDT, NOPROTECT, NOLVP 
+.................... #use rs232(baud=9600, xmit=PIN_C6, rcv=PIN_C7) 
+.................... #use rtos(timer=0, minor_cycle=100ms) 
+....................  
+.................... #task (rate=4000ms, max=100ms, queue=2) 
+.................... void The_first_rtos_task(); 
+....................  
+.................... #task (rate=20000ms, max=100ms, queue=2) 
+.................... void The_second_rtos_task(); 
+....................  
+....................  
+.................... void The_first_rtos_task(){ 
+....................   int count=0; 
+*
+0038:  CLRF   1E
+....................    
+....................   while(TRUE){ 
+....................    count++; 
+003A:  INCF   1E,F
+....................    rtos_msg_send(The_second_rtos_task, count); 
+003C:  MOVLW  1B
+003E:  ADDWF  19,W
+0040:  MOVWF  FE9
+0042:  CLRF   FEA
+0044:  BTFSC  FD8.0
+0046:  INCF   FEA,F
+0048:  INCF   19,W
+004A:  MOVWF  00
+004C:  SUBLW  03
+004E:  BNZ   0052
+0050:  CLRF   00
+0052:  MOVF   1A,W
+0054:  SUBWF  00,W
+0056:  BNZ   005C
+0058:  MOVLW  00
+005A:  BRA    0066
+005C:  MOVFF  00,19
+0060:  MOVFF  1E,FEF
+0064:  MOVLW  01
+....................    rtos_yield(); 
+0066:  MOVLW  72
+0068:  MOVWF  0B
+006A:  MOVLW  00
+006C:  MOVWF  0C
+006E:  GOTO   02BA
+....................   } 
+0072:  BRA    003A
+.................... } 
+0074:  MOVLW  38
+0076:  MOVWF  0B
+0078:  MOVLW  00
+007A:  MOVWF  0C
+007C:  GOTO   02BA
+0080:  RETLW  00
+....................  
+....................  
+.................... void The_second_rtos_task(){ 
+....................  
+....................    if(rtos_msg_poll()){ 
+*
+017C:  MOVF   1A,W
+017E:  SUBWF  19,W
+0180:  BNC   0188
+0182:  MOVF   1A,W
+0184:  SUBWF  19,W
+0186:  BRA    0190
+0188:  MOVLW  03
+018A:  BSF    FD8.0
+018C:  SUBFWB 1A,W
+018E:  ADDWF  19,W
+0190:  XORLW  00
+0192:  BZ    01EA
+....................       printf("count is: %i\n\r", rtos_msg_read()); 
+0194:  MOVF   1A,W
+0196:  SUBWF  19,W
+0198:  BZ    0194
+019A:  MOVLW  1B
+019C:  ADDWF  1A,W
+019E:  MOVWF  FE9
+01A0:  CLRF   FEA
+01A2:  BTFSC  FD8.0
+01A4:  INCF   FEA,F
+01A6:  MOVFF  FEF,01
+01AA:  INCF   1A,F
+01AC:  MOVF   1A,W
+01AE:  SUBLW  03
+01B0:  BNZ   01B4
+01B2:  CLRF   1A
+01B4:  MOVFF  01,1F
+01B8:  CLRF   20
+01BA:  MOVF   20,W
+01BC:  RCALL  0004
+01BE:  INCF   20,F
+01C0:  MOVWF  00
+01C2:  MOVF   00,W
+01C4:  BTFSS  F9E.4
+01C6:  BRA    01C4
+01C8:  MOVWF  FAD
+01CA:  MOVLW  0A
+01CC:  SUBWF  20,W
+01CE:  BNZ   01BA
+01D0:  MOVFF  1F,21
+01D4:  MOVLW  1F
+01D6:  MOVWF  22
+01D8:  BRA    00AA
+01DA:  MOVLW  0A
+01DC:  BTFSS  F9E.4
+01DE:  BRA    01DC
+01E0:  MOVWF  FAD
+01E2:  MOVLW  0D
+01E4:  BTFSS  F9E.4
+01E6:  BRA    01E4
+01E8:  MOVWF  FAD
+....................    } 
+.................... } 
+01EA:  MOVLW  7C
+01EC:  MOVWF  17
+01EE:  MOVLW  01
+01F0:  MOVWF  18
+01F2:  GOTO   02BA
+01F6:  RETLW  00
+....................  
+.................... void main(){ 
+01F8:  CLRF   FF8
+01FA:  BCF    FD0.7
+01FC:  CLRF   FEA
+01FE:  CLRF   FE9
+0200:  MOVLW  81
+0202:  MOVWF  FAF
+0204:  MOVLW  A6
+0206:  MOVWF  FAC
+0208:  MOVLW  90
+020A:  MOVWF  FAB
+020C:  BSF    FC1.0
+020E:  BSF    FC1.1
+0210:  BSF    FC1.2
+0212:  BCF    FC1.3
+....................    rtos_run(); 
+0214:  CLRF   06
+0216:  CLRF   08
+0218:  MOVLW  28
+021A:  MOVWF  07
+021C:  CLRF   0A
+021E:  CLRF   09
+0220:  CLRF   0D
+0222:  CLRF   0E
+0224:  MOVLW  38
+0226:  MOVWF  0B
+0228:  MOVLW  00
+022A:  MOVWF  0C
+022C:  CLRF   12
+022E:  CLRF   14
+0230:  MOVLW  C8
+0232:  MOVWF  13
+0234:  CLRF   16
+0236:  MOVLW  01
+0238:  MOVWF  15
+023A:  CLRF   19
+023C:  CLRF   1A
+023E:  MOVLW  7C
+0240:  MOVWF  17
+0242:  MOVLW  01
+0244:  MOVWF  18
+0246:  CLRF   05
+0248:  MOVLW  82
+024A:  MOVWF  FD5
+024C:  MOVLW  0B
+024E:  MOVWF  FD7
+0250:  MOVLW  DC
+0252:  MOVWF  FD6
+0254:  BCF    FF2.2
+0256:  MOVLW  82
+0258:  MOVWF  FD5
+025A:  MOVLW  0B
+025C:  MOVWF  FD7
+025E:  MOVLW  DC
+0260:  MOVWF  FD6
+0262:  BCF    FF2.2
+0264:  BCF    FD8.0
+0266:  RLCF   05,W
+0268:  MOVWF  00
+026A:  RCALL  0024
+026C:  MOVWF  02
+026E:  MOVLW  01
+0270:  ADDWF  00,W
+0272:  RCALL  0024
+0274:  MOVWF  FEA
+0276:  MOVFF  02,FE9
+027A:  MOVFF  FEF,02
+027E:  INCF   FE9,F
+0280:  MOVFF  FEF,00
+0284:  MOVFF  FEC,01
+0288:  INCF   FEC,F
+028A:  MOVFF  FEF,03
+028E:  BNZ   0294
+0290:  INCF   FEC,F
+0292:  MOVF   FED,F
+0294:  MOVF   FEC,W
+0296:  SUBWF  01,W
+0298:  BNZ   02BC
+029A:  MOVF   00,W
+029C:  SUBWF  03,W
+029E:  BNZ   02BC
+02A0:  MOVF   FED,F
+02A2:  MOVF   FED,F
+02A4:  CLRF   FEE
+02A6:  CLRF   FEE
+02A8:  BTFSC  02.7
+02AA:  BRA    02BC
+02AC:  MOVF   FEC,F
+02AE:  MOVFF  FEC,FFA
+02B2:  MOVF   FED,F
+02B4:  MOVFF  FEF,FE8
+02B8:  MOVWF  FF9
+02BA:  MOVLB  0
+02BC:  INCF   05,F
+02BE:  MOVLW  02
+02C0:  SUBWF  05,W
+02C2:  BNZ   0264
+02C4:  CLRF   05
+02C6:  MOVF   FD6,W
+02C8:  MOVFF  FD7,03
+02CC:  BTFSC  FF2.2
+02CE:  BRA    025A
+02D0:  BRA    02C6
+02D2:  MOVLW  FF
+02D4:  MOVWF  05
+.................... } 
+02D6:  SLEEP 
+
+Configuration Fuses:
+   Word  1: 2200   HS NOOSCSEN
+   Word  2: 0E0E   BROWNOUT WDT128 NOWDT BORV20 PUT
+   Word  3: 0100   CCP2C1
+   Word  4: 0081   STVREN NODEBUG NOLVP
+   Word  5: C00F   NOPROTECT NOCPD NOCPB
+   Word  6: E00F   NOWRT NOWRTD NOWRTB NOWRTC
+   Word  7: 400F   NOEBTR NOEBTRB

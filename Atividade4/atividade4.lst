@@ -1,0 +1,228 @@
+CCS PCH C Compiler, Version 4.074, 38112               13-nov-14 22:36
+
+               Filename: E:\Dropbox\__UTFPR-CP__\Período 8.5\Sistemas Embarcados\Atividades apostila\Atividade4\atividade4.lst
+
+               ROM used: 382 bytes (1%)
+                         Largest free fragment is 32386
+               RAM used: 31 (2%) at main() level
+                         33 (2%) worst case
+               Stack:    3 worst case (1 in main + 2 for interrupts)
+
+*
+0000:  GOTO   009C
+.................... #include <18F452.h> 
+.................... //////// Standard Header file for the PIC18F452 device //////////////// 
+.................... #device PIC18F452 
+.................... #list 
+....................  
+....................  
+.................... #use delay(clock = 20000000) 
+0018:  CLRF   FEA
+001A:  MOVLW  20
+001C:  MOVWF  FE9
+001E:  MOVF   FEF,W
+0020:  BZ    003C
+0022:  MOVLW  06
+0024:  MOVWF  01
+0026:  CLRF   00
+0028:  DECFSZ 00,F
+002A:  BRA    0028
+002C:  DECFSZ 01,F
+002E:  BRA    0026
+0030:  MOVLW  7B
+0032:  MOVWF  00
+0034:  DECFSZ 00,F
+0036:  BRA    0034
+0038:  DECFSZ FEF,F
+003A:  BRA    0022
+003C:  RETLW  00
+.................... #fuses HS, NOWDT, NOPROTECT, NOLVP 
+.................... #use rs232(baud=9600, xmit=PIN_C6, rcv=PIN_C7) 
+.................... #use rtos(timer=0, minor_cycle=100ms) 
+....................  
+.................... #define RED PIN_B0 
+.................... #define GREEN PIN_B1 
+....................  
+.................... int8 count; 
+....................  
+.................... #task (rate=1000ms,max=100ms, queue=2) 
+.................... void The_first_rtos_task(); 
+....................  
+.................... #task (rate=1000ms,max=100ms, queue=2) 
+.................... void The_second_rtos_task(); 
+....................  
+....................  
+.................... void The_first_rtos_task(){ 
+....................    rtos_await(count==10); 
+003E:  MOVF   06,W
+0040:  SUBLW  0A
+0042:  BZ    0048
+0044:  MOVLW  00
+0046:  BRA    004A
+0048:  MOVLW  01
+004A:  MOVWF  1F
+004C:  MOVLW  3E
+004E:  MOVWF  0C
+0050:  MOVLW  00
+0052:  MOVWF  0D
+0054:  BSF    07.3
+0056:  MOVF   1F,F
+0058:  BTFSC  FD8.2
+005A:  GOTO   0162
+005E:  BCF    07.3
+....................    output_low(GREEN); delay_ms(20); output_high(GREEN); 
+0060:  BCF    F93.1
+0062:  BCF    F8A.1
+0064:  MOVLW  14
+0066:  MOVWF  20
+0068:  RCALL  0018
+006A:  BCF    F93.1
+006C:  BSF    F8A.1
+....................    count=0; 
+006E:  CLRF   06
+.................... } 
+0070:  MOVLW  3E
+0072:  MOVWF  0C
+0074:  MOVLW  00
+0076:  MOVWF  0D
+0078:  GOTO   0160
+007C:  RETLW  00
+....................  
+.................... void The_second_rtos_task(){ 
+....................    output_low(RED); delay_ms(20); output_high(RED); 
+007E:  BCF    F93.0
+0080:  BCF    F8A.0
+0082:  MOVLW  14
+0084:  MOVWF  20
+0086:  RCALL  0018
+0088:  BCF    F93.0
+008A:  BSF    F8A.0
+....................    count++; 
+008C:  INCF   06,F
+.................... } 
+008E:  MOVLW  7E
+0090:  MOVWF  18
+0092:  MOVLW  00
+0094:  MOVWF  19
+0096:  GOTO   0160
+009A:  RETLW  00
+....................  
+....................  
+.................... void main(){ 
+009C:  CLRF   FF8
+009E:  BCF    FD0.7
+00A0:  CLRF   FEA
+00A2:  CLRF   FE9
+00A4:  MOVLW  81
+00A6:  MOVWF  FAF
+00A8:  MOVLW  A6
+00AA:  MOVWF  FAC
+00AC:  MOVLW  90
+00AE:  MOVWF  FAB
+00B0:  BSF    FC1.0
+00B2:  BSF    FC1.1
+00B4:  BSF    FC1.2
+00B6:  BCF    FC1.3
+....................    count=0; 
+00B8:  CLRF   06
+....................    rtos_run(); 
+00BA:  CLRF   07
+00BC:  CLRF   09
+00BE:  MOVLW  0A
+00C0:  MOVWF  08
+00C2:  CLRF   0B
+00C4:  CLRF   0A
+00C6:  CLRF   0E
+00C8:  CLRF   0F
+00CA:  MOVLW  3E
+00CC:  MOVWF  0C
+00CE:  MOVLW  00
+00D0:  MOVWF  0D
+00D2:  CLRF   13
+00D4:  CLRF   15
+00D6:  MOVLW  0A
+00D8:  MOVWF  14
+00DA:  CLRF   17
+00DC:  MOVLW  01
+00DE:  MOVWF  16
+00E0:  CLRF   1A
+00E2:  CLRF   1B
+00E4:  MOVLW  7E
+00E6:  MOVWF  18
+00E8:  MOVLW  00
+00EA:  MOVWF  19
+00EC:  CLRF   05
+00EE:  MOVLW  82
+00F0:  MOVWF  FD5
+00F2:  MOVLW  0B
+00F4:  MOVWF  FD7
+00F6:  MOVLW  DC
+00F8:  MOVWF  FD6
+00FA:  BCF    FF2.2
+00FC:  MOVLW  82
+00FE:  MOVWF  FD5
+0100:  MOVLW  0B
+0102:  MOVWF  FD7
+0104:  MOVLW  DC
+0106:  MOVWF  FD6
+0108:  BCF    FF2.2
+010A:  BCF    FD8.0
+010C:  RLCF   05,W
+010E:  MOVWF  00
+0110:  RCALL  0004
+0112:  MOVWF  02
+0114:  MOVLW  01
+0116:  ADDWF  00,W
+0118:  RCALL  0004
+011A:  MOVWF  FEA
+011C:  MOVFF  02,FE9
+0120:  MOVFF  FEF,02
+0124:  INCF   FE9,F
+0126:  MOVFF  FEF,00
+012A:  MOVFF  FEC,01
+012E:  INCF   FEC,F
+0130:  MOVFF  FEF,03
+0134:  BNZ   013A
+0136:  INCF   FEC,F
+0138:  MOVF   FED,F
+013A:  MOVF   FEC,W
+013C:  SUBWF  01,W
+013E:  BNZ   0162
+0140:  MOVF   00,W
+0142:  SUBWF  03,W
+0144:  BNZ   0162
+0146:  MOVF   FED,F
+0148:  MOVF   FED,F
+014A:  CLRF   FEE
+014C:  CLRF   FEE
+014E:  BTFSC  02.7
+0150:  BRA    0162
+0152:  MOVF   FEC,F
+0154:  MOVFF  FEC,FFA
+0158:  MOVF   FED,F
+015A:  MOVFF  FEF,FE8
+015E:  MOVWF  FF9
+0160:  MOVLB  0
+0162:  INCF   05,F
+0164:  MOVLW  02
+0166:  SUBWF  05,W
+0168:  BNZ   010A
+016A:  CLRF   05
+016C:  MOVF   FD6,W
+016E:  MOVFF  FD7,03
+0172:  BTFSC  FF2.2
+0174:  BRA    0100
+0176:  BRA    016C
+0178:  MOVLW  FF
+017A:  MOVWF  05
+.................... } 
+017C:  SLEEP 
+
+Configuration Fuses:
+   Word  1: 2200   HS NOOSCSEN
+   Word  2: 0E0E   BROWNOUT WDT128 NOWDT BORV20 PUT
+   Word  3: 0100   CCP2C1
+   Word  4: 0081   STVREN NODEBUG NOLVP
+   Word  5: C00F   NOPROTECT NOCPD NOCPB
+   Word  6: E00F   NOWRT NOWRTD NOWRTB NOWRTC
+   Word  7: 400F   NOEBTR NOEBTRB
